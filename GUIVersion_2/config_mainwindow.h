@@ -19,11 +19,11 @@ class config_mainwindow : public QMainWindow
 public:
     explicit config_mainwindow(SonTcpServer *server, QWidget *parent = 0);
     ~config_mainwindow();
-
+    bool check_on(QString check); //用来判断on和off按钮
 signals:
     void close_cg();
 
-    void emit_confeNb(QString eNbconf); //传递eNB配置给socket下发
+    void emit_confeNb(QString eNbconf, qintptr ); //传递eNB配置给socket下发
     void emit_to_main(QString info);
 private:
     Ui::config_mainwindow *ui;

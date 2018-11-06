@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_config_mainwindow_t {
-    QByteArrayData data[8];
-    char stringdata[90];
+    QByteArrayData data[9];
+    char stringdata[98];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,12 +34,13 @@ QT_MOC_LITERAL(1, 18, 8),
 QT_MOC_LITERAL(2, 27, 0),
 QT_MOC_LITERAL(3, 28, 12),
 QT_MOC_LITERAL(4, 41, 7),
-QT_MOC_LITERAL(5, 49, 12),
-QT_MOC_LITERAL(6, 62, 4),
-QT_MOC_LITERAL(7, 67, 21)
+QT_MOC_LITERAL(5, 49, 7),
+QT_MOC_LITERAL(6, 57, 12),
+QT_MOC_LITERAL(7, 70, 4),
+QT_MOC_LITERAL(8, 75, 21)
     },
     "config_mainwindow\0close_cg\0\0emit_confeNb\0"
-    "eNbconf\0emit_to_main\0info\0"
+    "eNbconf\0qintptr\0emit_to_main\0info\0"
     "on_pushButton_clicked\0"
 };
 #undef QT_MOC_LITERAL
@@ -59,16 +60,16 @@ static const uint qt_meta_data_config_mainwindow[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    0,   34,    2, 0x06,
-       3,    1,   35,    2, 0x06,
-       5,    1,   38,    2, 0x06,
+       3,    2,   35,    2, 0x06,
+       6,    1,   40,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   41,    2, 0x08,
+       8,    0,   43,    2, 0x08,
 
  // signals: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    4,
-    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 5,    4,    2,
+    QMetaType::Void, QMetaType::QString,    7,
 
  // slots: parameters
     QMetaType::Void,
@@ -82,7 +83,7 @@ void config_mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         config_mainwindow *_t = static_cast<config_mainwindow *>(_o);
         switch (_id) {
         case 0: _t->close_cg(); break;
-        case 1: _t->emit_confeNb((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->emit_confeNb((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< qintptr(*)>(_a[2]))); break;
         case 2: _t->emit_to_main((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->on_pushButton_clicked(); break;
         default: ;
@@ -97,7 +98,7 @@ void config_mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
             }
         }
         {
-            typedef void (config_mainwindow::*_t)(QString );
+            typedef void (config_mainwindow::*_t)(QString , qintptr );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&config_mainwindow::emit_confeNb)) {
                 *result = 1;
             }
@@ -154,9 +155,9 @@ void config_mainwindow::close_cg()
 }
 
 // SIGNAL 1
-void config_mainwindow::emit_confeNb(QString _t1)
+void config_mainwindow::emit_confeNb(QString _t1, qintptr _t2)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 

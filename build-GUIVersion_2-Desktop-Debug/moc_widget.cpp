@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Widget_t {
     QByteArrayData data[17];
-    char stringdata[187];
+    char stringdata[189];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,26 +32,27 @@ static const qt_meta_stringdata_Widget_t qt_meta_stringdata_Widget = {
 QT_MOC_LITERAL(0, 0, 6),
 QT_MOC_LITERAL(1, 7, 15),
 QT_MOC_LITERAL(2, 23, 0),
-QT_MOC_LITERAL(3, 24, 1),
-QT_MOC_LITERAL(4, 26, 8),
-QT_MOC_LITERAL(5, 35, 16),
-QT_MOC_LITERAL(6, 52, 8),
-QT_MOC_LITERAL(7, 61, 6),
-QT_MOC_LITERAL(8, 68, 8),
-QT_MOC_LITERAL(9, 77, 16),
-QT_MOC_LITERAL(10, 94, 18),
-QT_MOC_LITERAL(11, 113, 18),
-QT_MOC_LITERAL(12, 132, 20),
-QT_MOC_LITERAL(13, 153, 11),
-QT_MOC_LITERAL(14, 165, 7),
-QT_MOC_LITERAL(15, 173, 7),
-QT_MOC_LITERAL(16, 181, 4)
+QT_MOC_LITERAL(3, 24, 7),
+QT_MOC_LITERAL(4, 32, 8),
+QT_MOC_LITERAL(5, 41, 16),
+QT_MOC_LITERAL(6, 58, 8),
+QT_MOC_LITERAL(7, 67, 6),
+QT_MOC_LITERAL(8, 74, 8),
+QT_MOC_LITERAL(9, 83, 16),
+QT_MOC_LITERAL(10, 100, 18),
+QT_MOC_LITERAL(11, 119, 18),
+QT_MOC_LITERAL(12, 138, 20),
+QT_MOC_LITERAL(13, 159, 12),
+QT_MOC_LITERAL(14, 172, 4),
+QT_MOC_LITERAL(15, 177, 2),
+QT_MOC_LITERAL(16, 180, 7)
     },
-    "Widget\0emit_socketData\0\0s\0initForm\0"
-    "menu_one_trigged\0QAction*\0action\0"
-    "cg_close\0menu_two_trigged\0on_btn_max_clicked\0"
-    "on_btn_min_clicked\0on_btn_close_clicked\0"
-    "displayTest\0strdata\0to_main\0data\0"
+    "Widget\0emit_socketData\0\0qintptr\0"
+    "initForm\0menu_one_trigged\0QAction*\0"
+    "action\0cg_close\0menu_two_trigged\0"
+    "on_btn_max_clicked\0on_btn_min_clicked\0"
+    "on_btn_close_clicked\0transferData\0"
+    "data\0id\0to_main\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,21 +70,21 @@ static const uint qt_meta_data_Widget[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   64,    2, 0x06,
+       1,    2,   64,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   67,    2, 0x08,
-       5,    1,   68,    2, 0x08,
-       8,    0,   71,    2, 0x08,
-       9,    1,   72,    2, 0x08,
-      10,    0,   75,    2, 0x08,
-      11,    0,   76,    2, 0x08,
-      12,    0,   77,    2, 0x08,
-      13,    1,   78,    2, 0x08,
-      15,    1,   81,    2, 0x08,
+       4,    0,   69,    2, 0x08,
+       5,    1,   70,    2, 0x08,
+       8,    0,   73,    2, 0x08,
+       9,    1,   74,    2, 0x08,
+      10,    0,   77,    2, 0x08,
+      11,    0,   78,    2, 0x08,
+      12,    0,   79,    2, 0x08,
+      13,    2,   80,    2, 0x08,
+      16,    1,   85,    2, 0x08,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 3,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -93,8 +94,8 @@ static const uint qt_meta_data_Widget[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 3,   14,   15,
     QMetaType::Void, QMetaType::QString,   14,
-    QMetaType::Void, QMetaType::QString,   16,
 
        0        // eod
 };
@@ -104,7 +105,7 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     if (_c == QMetaObject::InvokeMetaMethod) {
         Widget *_t = static_cast<Widget *>(_o);
         switch (_id) {
-        case 0: _t->emit_socketData((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: _t->emit_socketData((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< qintptr(*)>(_a[2]))); break;
         case 1: _t->initForm(); break;
         case 2: _t->menu_one_trigged((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
         case 3: _t->cg_close(); break;
@@ -112,7 +113,7 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 5: _t->on_btn_max_clicked(); break;
         case 6: _t->on_btn_min_clicked(); break;
         case 7: _t->on_btn_close_clicked(); break;
-        case 8: _t->displayTest((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: _t->transferData((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< qintptr(*)>(_a[2]))); break;
         case 9: _t->to_main((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
@@ -138,7 +139,7 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (Widget::*_t)(QString );
+            typedef void (Widget::*_t)(QString , qintptr );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Widget::emit_socketData)) {
                 *result = 0;
             }
@@ -183,9 +184,9 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Widget::emit_socketData(QString _t1)
+void Widget::emit_socketData(QString _t1, qintptr _t2)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

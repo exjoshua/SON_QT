@@ -33,7 +33,7 @@ private:
     SonTcpServer* server;
     qintptr current_id;
 signals:
-    void emit_socketData(QString s);
+    void emit_socketData(QString , qintptr);
 private slots:
     void initForm();
     void menu_one_trigged(QAction* action);
@@ -42,8 +42,7 @@ private slots:
     void on_btn_max_clicked();
     void on_btn_min_clicked();
     void on_btn_close_clicked();
-
-    void displayTest(QString strdata);
+    void transferData(QString data, qintptr id);
     void to_main(QString data);
 };
 

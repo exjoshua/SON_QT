@@ -14,11 +14,11 @@ public:
 
 signals:
     void error(QTcpSocket::SocketError socketerror);
-
+    void disconnectTcp(qintptr);
 public slots:
     void readyRead();
     void disconnected();
-    void sendTest(QString data);
+    void sendTest(QString data, qintptr id);
 private:
     QTcpSocket *socket;
     qintptr socketDescriptor;

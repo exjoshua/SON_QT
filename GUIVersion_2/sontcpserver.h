@@ -22,12 +22,13 @@ public:
     QMap<qintptr, QString> socketMap;
     int countNum;
 
-signals:
 
 protected:
     void incomingConnection(qintptr socketDescriptor);
 private:
     Widget *widget;
+private slots:
+    void deleteTcp(qintptr id);
 };
 
 #endif // SONTCPSERVER_H

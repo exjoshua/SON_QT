@@ -56,7 +56,7 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
     ui->tableWidget->setAlternatingRowColors(true);
     //ui->tableWidget->horizontalHeader()->setObjectName("hHeader");
     ui->tableWidget->verticalHeader()->setObjectName("vHeader");
-    //connect用于下发
+
 }
 
 config_mainwindow::~config_mainwindow()
@@ -94,13 +94,20 @@ void config_mainwindow::on_pushButton_clicked()
             data = data+"            "+combo->currentText()+"  ";
         }
         emit emit_to_main(data);
+        if (!check_on(data))
+        {
+            qDebug()<<itabtext <<":你选择了OFF,请选择ON进行传输!!!";
+            continue;
+        }
         for (int i=0; i<server1->socketMap.size(); i++)
         {
             if (!server1->socketList.empty())
             {
                 if (server1->socketMap.value(server1->socketList.at(i)) == itabtext)
                 {
-                    emit emit_confeNb(data);
+                    qDebug() << "ABCDEFGHIJKLMNOGQRSTUVWXYZ";
+                    emit emit_confeNb(data, server1->socketList.at(i)); //发送数据以及套接字
+                    break;
                 }
             }
         }
@@ -112,7 +119,15 @@ void config_mainwindow::on_pushButton_clicked()
         }
         */
     }
-//   测试server是否正确传递
+/*   测试server是否正确传递
     if (!server1->socketList.isEmpty())
         qDebug() << server1->socketList.at(0);
+        */
+}
+bool config_mainwindow::check_on(QString check)
+{
+    if (check.contains("ON"))
+        return true;
+    else
+        return false;
 }

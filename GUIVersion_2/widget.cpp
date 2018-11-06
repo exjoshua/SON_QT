@@ -101,7 +101,7 @@ void Widget::menu_one_trigged(QAction *action)
             cg_frame->move(((wd-600)/2),(ht-400)/2);
             cg_frame->setFixedSize(600,400);
             cg_frame->show();
-            connect(cg_frame, SIGNAL(emit_confeNb(QString)), this, SLOT(displayTest(QString)));
+            connect(cg_frame, SIGNAL(emit_confeNb(QString, qintptr)), this, SLOT(transferData(QString, qintptr)));
             connect(cg_frame,SIGNAL(emit_to_main(QString)),this,SLOT(to_main(QString)));
 
     }
@@ -151,12 +151,11 @@ void Widget::on_btn_close_clicked()
 {
     this->close();
 }
-void Widget::displayTest(QString strdata)
-{
-
-    emit emit_socketData(strdata);
-}
 void Widget::to_main(QString data)
 {
     ui->textBrowser->append(data);
+}
+void Widget::transferData(QString data, qintptr id)
+{
+    emit emit_socketData(data, id);
 }

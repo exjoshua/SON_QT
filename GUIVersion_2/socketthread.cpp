@@ -32,12 +32,14 @@ void SocketThread::readyRead()
 void SocketThread::disconnected()
 {
     qDebug()<<socketDescriptor<<"Disconnected";
+    emit disconnectTcp(socketDescriptor);
     socket->deleteLater();
     exit(0);
 }
-void SocketThread::sendTest(QString data)
+void SocketThread::sendTest(QString data, qintptr id)
 {
     qDebug() << "测试成功";
-    socket->write(data.toLocal8Bit());
+    if (id == socketDescriptor)
+        socket->write(data.toLocal8Bit());
 
 }
