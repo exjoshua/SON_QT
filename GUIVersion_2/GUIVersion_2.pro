@@ -29,13 +29,17 @@ SOURCES += \
         widget.cpp \
     iconhelper.cpp \
     appinit.cpp \
-    config_mainwindow.cpp
+    config_mainwindow.cpp \
+    sontcpserver.cpp \
+    socketthread.cpp
 
 HEADERS += \
         widget.h \
     iconhelper.h \
     appinit.h \
-    config_mainwindow.h
+    config_mainwindow.h \
+    sontcpserver.h \
+    socketthread.h
 
 FORMS += \
         widget.ui \

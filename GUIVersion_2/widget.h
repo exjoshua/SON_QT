@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QMenu>
 #include "config_mainwindow.h"
+#include "sontcpserver.h"
+
+class SonTcpServer;
 
 namespace Ui {
 class Widget;
@@ -25,6 +28,9 @@ protected:
 
 private:
     Ui::Widget *ui;
+//    zyx新增
+    SonTcpServer *server;
+    qintptr current_id;
 
 private slots:
     void initForm();

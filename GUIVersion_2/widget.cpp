@@ -16,6 +16,9 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     this->initForm();
 
+//    server初始化操作
+    server = new SonTcpServer(this);
+    server->StartServer();
 }
 
 Widget::~Widget()
