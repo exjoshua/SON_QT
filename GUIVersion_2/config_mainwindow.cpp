@@ -6,12 +6,13 @@
 
 
 
-config_mainwindow::config_mainwindow(QWidget *parent) :
+config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::config_mainwindow)
 {
     ui->setupUi(this);
     ui->menubar->show();
+    server1 = server;
     for(int i=0; i<3;i++){
         QComboBox *combox_state = new QComboBox();
         combox_state->addItem("ON");
@@ -55,6 +56,7 @@ config_mainwindow::config_mainwindow(QWidget *parent) :
     ui->tableWidget->setAlternatingRowColors(true);
     //ui->tableWidget->horizontalHeader()->setObjectName("hHeader");
     ui->tableWidget->verticalHeader()->setObjectName("vHeader");
+    //connect用于下发
 }
 
 config_mainwindow::~config_mainwindow()
@@ -76,19 +78,41 @@ void config_mainwindow::on_pushButton_clicked()
 //    QComboBox* combo=(QComboBox*)ui->tableWidget->cellWidget(0,2);
 //    combo->currentIndex();
 //    qDebug()<<"item"<<combo->currentText();
+    QString head="ID                     状态            频点           带宽    发射增益    接收增益    功率";
+    emit emit_to_main(head);
 
     for(int i=0; i<3; i++){
-        std::array<std::string, 7> data;
+        QString data;
+        QStringList confList;
+        confList.clear();//初始化
         QTableWidgetItem *itab = ui->tableWidget->item(i,0);//获得tablewidget元素
         QString itabtext = itab->text();//指向enB123
-        data[0] = itabtext.toUtf8().constData();
+        data = itabtext+":  ";
+        confList << itabtext;
         for(int j=1; j<7; j++){
             QComboBox* combo=(QComboBox*)ui->tableWidget->cellWidget(i,j);//取enb后面的数据
-            data[j]=combo->currentText().toUtf8().constData();
+            data = data+"            "+combo->currentText()+"  ";
         }
+        emit emit_to_main(data);
+        for (int i=0; i<server1->socketMap.size(); i++)
+        {
+            if (!server1->socketList.empty())
+            {
+                if (server1->socketMap.value(server1->socketList.at(i)) == itabtext)
+                {
+                    emit emit_confeNb(data);
+                }
+            }
+        }
+
+        //结束
+        /*
         for(int m=0; m<7; m++){
             qDebug()<<"item is "<<QString::fromStdString(data[m]);
         }
+        */
     }
-
+//   测试server是否正确传递
+    if (!server1->socketList.isEmpty())
+        qDebug() << server1->socketList.at(0);
 }

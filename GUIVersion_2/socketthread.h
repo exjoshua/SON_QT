@@ -18,6 +18,7 @@ signals:
 public slots:
     void readyRead();
     void disconnected();
+    void sendTest(QString data);
 private:
     QTcpSocket *socket;
     qintptr socketDescriptor;

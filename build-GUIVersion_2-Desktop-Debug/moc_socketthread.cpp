@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SocketThread_t {
-    QByteArrayData data[7];
-    char stringdata[80];
+    QByteArrayData data[9];
+    char stringdata[94];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,10 +35,13 @@ QT_MOC_LITERAL(2, 19, 0),
 QT_MOC_LITERAL(3, 20, 23),
 QT_MOC_LITERAL(4, 44, 11),
 QT_MOC_LITERAL(5, 56, 9),
-QT_MOC_LITERAL(6, 66, 12)
+QT_MOC_LITERAL(6, 66, 12),
+QT_MOC_LITERAL(7, 79, 8),
+QT_MOC_LITERAL(8, 88, 4)
     },
     "SocketThread\0error\0\0QTcpSocket::SocketError\0"
     "socketerror\0readyRead\0disconnected\0"
+    "sendTest\0data\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -48,7 +51,7 @@ static const uint qt_meta_data_SocketThread[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -56,11 +59,12 @@ static const uint qt_meta_data_SocketThread[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   29,    2, 0x06,
+       1,    1,   34,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   32,    2, 0x0a,
-       6,    0,   33,    2, 0x0a,
+       5,    0,   37,    2, 0x0a,
+       6,    0,   38,    2, 0x0a,
+       7,    1,   39,    2, 0x0a,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -68,6 +72,7 @@ static const uint qt_meta_data_SocketThread[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    8,
 
        0        // eod
 };
@@ -80,6 +85,7 @@ void SocketThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 0: _t->error((*reinterpret_cast< QTcpSocket::SocketError(*)>(_a[1]))); break;
         case 1: _t->readyRead(); break;
         case 2: _t->disconnected(); break;
+        case 3: _t->sendTest((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -119,13 +125,13 @@ int SocketThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

@@ -35,3 +35,9 @@ void SocketThread::disconnected()
     socket->deleteLater();
     exit(0);
 }
+void SocketThread::sendTest(QString data)
+{
+    qDebug() << "测试成功";
+    socket->write(data.toLocal8Bit());
+
+}

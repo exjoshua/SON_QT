@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QCloseEvent>
+#include "sontcpserver.h"
 
+//zyx:新增用于传递server参数
+class  SonTcpServer;
 
 namespace Ui {
 class config_mainwindow;
@@ -14,15 +17,17 @@ class config_mainwindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit config_mainwindow(QWidget *parent = 0);
+    explicit config_mainwindow(SonTcpServer *server, QWidget *parent = 0);
     ~config_mainwindow();
 
 signals:
     void close_cg();
 
+    void emit_confeNb(QString eNbconf); //传递eNB配置给socket下发
+    void emit_to_main(QString info);
 private:
     Ui::config_mainwindow *ui;
-
+    SonTcpServer * server1;
 protected:
     void closeEvent(QCloseEvent *);
 private slots:

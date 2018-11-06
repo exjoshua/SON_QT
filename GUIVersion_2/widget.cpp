@@ -16,9 +16,12 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     this->initForm();
 
+
 //    server初始化操作
     server = new SonTcpServer(this);
     server->StartServer();
+
+
 }
 
 Widget::~Widget()
@@ -86,18 +89,20 @@ void Widget::menu_one_trigged(QAction *action)
     qDebug()<<"hello "<<action->text();
     QString name = action->text();
     if(name=="自配置"&&cg_i==0){
+            ui->textBrowser->append(QString("<font color=black>[自配置]服务器下发配置信息</font>"));
             cg_i=1;
             QDesktopWidget *desk=QApplication::desktop();
             int wd=desk->width();
             int ht=desk->height();
-            cg_frame = new config_mainwindow(this);
+            cg_frame = new config_mainwindow(server, this);
             cg_frame->setProperty("config","white");
             cg_frame->setWindowTitle("自配置");
             connect(cg_frame,SIGNAL(close_cg()),this,SLOT(cg_close()));
             cg_frame->move(((wd-600)/2),(ht-400)/2);
             cg_frame->setFixedSize(600,400);
             cg_frame->show();
-
+            connect(cg_frame, SIGNAL(emit_confeNb(QString)), this, SLOT(displayTest(QString)));
+            connect(cg_frame,SIGNAL(emit_to_main(QString)),this,SLOT(to_main(QString)));
 
     }
 
@@ -145,4 +150,13 @@ void Widget::on_btn_min_clicked()
 void Widget::on_btn_close_clicked()
 {
     this->close();
+}
+void Widget::displayTest(QString strdata)
+{
+
+    emit emit_socketData(strdata);
+}
+void Widget::to_main(QString data)
+{
+    ui->textBrowser->append(data);
 }

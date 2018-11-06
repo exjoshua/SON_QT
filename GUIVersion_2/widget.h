@@ -7,6 +7,7 @@
 #include "sontcpserver.h"
 
 class SonTcpServer;
+class config_mainwindow;
 
 namespace Ui {
 class Widget;
@@ -29,9 +30,10 @@ protected:
 private:
     Ui::Widget *ui;
 //    zyx新增
-    SonTcpServer *server;
+    SonTcpServer* server;
     qintptr current_id;
-
+signals:
+    void emit_socketData(QString s);
 private slots:
     void initForm();
     void menu_one_trigged(QAction* action);
@@ -40,6 +42,9 @@ private slots:
     void on_btn_max_clicked();
     void on_btn_min_clicked();
     void on_btn_close_clicked();
+
+    void displayTest(QString strdata);
+    void to_main(QString data);
 };
 
 #endif // WIDGET_H

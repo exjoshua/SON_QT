@@ -239,7 +239,7 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">hello world</p></body></html>", 0));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">6G\347\256\200\346\231\272\346\227\240\347\272\277\346\216\245\345\205\245\347\275\221\346\274\224\347\244\272\345\271\263\345\217\260\345\210\235\345\247\213\345\214\226\346\210\220\345\212\237</p></body></html>", 0));
     } // retranslateUi
 
 };

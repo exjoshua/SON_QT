@@ -24,7 +24,6 @@ public:
 
 signals:
 
-public slots:
 protected:
     void incomingConnection(qintptr socketDescriptor);
 private:

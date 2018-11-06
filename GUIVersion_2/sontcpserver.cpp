@@ -3,6 +3,7 @@
 SonTcpServer::SonTcpServer(QObject *parent) :
     QTcpServer(parent)
 {
+    widget = dynamic_cast<Widget*>(parent);
 }
 void SonTcpServer::StartServer()
 {
@@ -22,15 +23,18 @@ void SonTcpServer::incomingConnection(qintptr socketDescriptor)
     qDebug()<< socketDescriptor <<"connecting....";
     /*按顺序添加socket描述符，先连先进*/
      socketList.append(socketDescriptor);
-     /*字典用于连接显示值与描述符*/
+     /*字典用于连接显示值与描述符
+    socketDescriptor为key,eNB序号为value*/
      countNum++;
-     QString str = QString("eNb%1").arg(countNum);
+     QString str = QString("eNB%1").arg(countNum);
      socketMap[socketDescriptor] = str;
-
+/*启动socket线程
+ */
      thread = new SocketThread(socketDescriptor, this);
 //     发送描述符信号
 
-
+    // connect(widget->cg_frame, SIGNAL(emit_confeNb(QStringList)), thread, SLOT(sendTest(QStringList))); 失败,因为创建connect时cg_frame还没创建
+     connect(widget, SIGNAL(emit_socketData(QString)), thread, SLOT(sendTest(QString)));//姑且这样吧,感觉效率很低
      connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
      thread->start();
 }
