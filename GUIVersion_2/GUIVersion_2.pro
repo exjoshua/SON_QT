@@ -7,7 +7,8 @@
 QT       += core gui network
 CONFIG += c++11
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+
 
 TARGET = GUIVersion_2
 TEMPLATE = app
@@ -29,18 +30,47 @@ SOURCES += \
         widget.cpp \
     iconhelper.cpp \
     appinit.cpp \
-    config_mainwindow.cpp
+    config_mainwindow.cpp \
+    sontcpserver.cpp \
+    socketthread.cpp \
+    qcustomplot.cpp \
+    optimize_mainwindow.cpp \
+    heal_mainwindow.cpp \
+    bsone_mainwindow.cpp \
+    bstwo_mainwindow.cpp \
+    bsthree_mainwindow.cpp \
+    log_mainwindow.cpp \
+    threadreadpy.cpp
 
 HEADERS += \
         widget.h \
     iconhelper.h \
     appinit.h \
-    config_mainwindow.h
+    config_mainwindow.h \
+    sontcpserver.h \
+    socketthread.h \
+    qcustomplot.h \
+    optimize_mainwindow.h \
+    heal_mainwindow.h \
+    bsone_mainwindow.h \
+    bstwo_mainwindow.h \
+    bsthree_mainwindow.h \
+    log_mainwindow.h \
+    threadreadpy.h
 
 FORMS += \
         widget.ui \
-    config_mainwindow.ui
+    config_mainwindow.ui \
+    optimize_mainwindow.ui \
+    heal_mainwindow.ui \
+    bsone_mainwindow.ui \
+    bstwo_mainwindow.ui \
+    bsthree_mainwindow.ui \
+    log_mainwindow.ui
 
 RESOURCES += \
     main.qrc \
     qss.qrc
+
+
+OTHER_FILES +=
